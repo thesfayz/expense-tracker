@@ -14,10 +14,14 @@ use App\Mail\ExpenseCreatedMail;
 use Illuminate\Support\Facades\Mail;
 class ExpenseController extends Controller
 {
+    // опять таки, всю бизнес логику лучше вынести в отдельный класс
     public function welcome()
     {
+        // а че оно так поехало все
+        // я не хочу его ревьюить :(
         $expenses = auth()->user()->expenses()->with('category')->get();
         $exchangeRates = Cache::remember('exchange_rates', 3600, function () {
+            // кек, если стороний api недоступен, то главная страница не откроектся
     return Http::get('https://open.er-api.com/v6/latest/USD')->json();
 });
 
