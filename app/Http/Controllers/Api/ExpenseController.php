@@ -27,6 +27,7 @@ class ExpenseController extends Controller
         $storeData['user_id'] = auth()->id();
 
         $expense = Expense::create($storeData);
+        Mail::to(auth()->user()->email)->send(new ExpenseCreatedMail($expense));
 
         return response()->json($expense, 201);
     }
