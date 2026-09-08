@@ -34,6 +34,8 @@ return new class extends Migration
         });
     }
 
+    // nit: не совсем замечание, просто интересный факт:
+    // во многих проектах секцию down() для миграций убирают
     public function down(): void
     {
         Schema::dropIfExists('users');

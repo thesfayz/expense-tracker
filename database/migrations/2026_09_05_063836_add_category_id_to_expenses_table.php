@@ -22,6 +22,10 @@ return new class extends Migration
      */
     public function down(): void
     {
+        // эта миграция упадет из-за внешнего ключа
+        //
+        // вот это сначала вызвать нужно 
+        // dropConstrainedForeignId('category_id')
         Schema::table('expenses', function (Blueprint $table) {
             $table->dropColumn('category_id');
         });

@@ -10,6 +10,10 @@ class PasswordConfirmationTest extends TestCase
 {
     use RefreshDatabase;
 
+    // обычно названия тестов пишут в camelCase
+    // e.g testConfirmPasswordScreenCanBeRendered
+    // 
+    // но за тесты плюс — это реально красавчик
     public function test_confirm_password_screen_can_be_rendered(): void
     {
         $user = User::factory()->create();
