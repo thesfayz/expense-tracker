@@ -7,6 +7,8 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Expense;
+use use App\Mail\ExpenseCreatedMail;
+use Illuminate\Support\Facades\Mail;
 
 class ExpenseController extends Controller
 {
